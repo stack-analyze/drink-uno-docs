@@ -4,6 +4,19 @@ orbs:
   android: circleci/android@1.0.3
 
 jobs:
+  build-android:
+    executor: android/android
+
+    steps:
+      - checkout
+      - android/restore-build-cache
+      - android/restore-gradle-cache
+      - run:
+          name: Run Android tests
+          command: ./gradlew androidApp:testDebugUnitTest
+      - android/save-gradle-cache
+      - android/save-build-cache
+
   build-ios:
     macos:
       xcode: 12.4.0
@@ -30,4 +43,5 @@ jobs:
 workflows:
   build-all:
     jobs:
+      - build-android
       - build-ios
