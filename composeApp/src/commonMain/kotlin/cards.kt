@@ -34,9 +34,7 @@ fun CardImage(img: DrawableResource) {
     )
 }
 
-/**
-* @param cards list of some uno game cards
-* */
+/** list of some uno game cards */
 val cards = listOf(
     Card(
         title = "falso uno", 
@@ -83,7 +81,7 @@ val cards = listOf(
         image = { CardImage(drawable.comodin_toma10) },
     ),
     Card(
-        title = "salta",
+        title = "salta (todos los uno)",
         shotUnit = "el jugador que perdió el turno se toma un shot.",
         image = { CardImage(drawable.salta) },
         altImage = { CardImage(drawable.comodin_salta) },
@@ -94,7 +92,7 @@ val cards = listOf(
         image = { CardImage(drawable.comodin_salta2) },
     ),
     Card(
-        title = "todos toman una carta (uno no flex)",
+        title = "todos toman una carta (uno flex)",
         shotUnit = """
         si un jugador juegan por el lado flex de la carta toma 2:
             todos los jugadores se toman un shot.
@@ -106,7 +104,8 @@ val cards = listOf(
         shotUnit = """
         1) si la carta es un comodin elige y toma dos.
         2) si la carta es el lado flex de comodín toma 2 focalizada.
-            el jugador elegido se toma un shot.
+        
+        el jugador elegido se toma un shot.
         """.trimIndent(),
         image = { CardImage(drawable.comodin_elige_toma2) },
         altImage = { CardImage(drawable.comodin_toma2_focalizada) },
@@ -141,7 +140,12 @@ val cards = listOf(
     ),
     Card(
         title = "salta a todos (uno flip, uno flex, uno no mercy)",
-        shotUnit = "todos los jugadores que perdieron su turno se toma un shot.",
+        shotUnit = """
+        1) si la carta es un carta salta a todos
+        2) si la carta es el lado flex de la carta flex salta.
+            
+        todos los jugadores que perdieron su turno se toma un shot.
+        """.trimIndent(),
         image = { CardImage(drawable.salta_todos) },
     ),
     Card(
@@ -150,7 +154,7 @@ val cards = listOf(
         image = { CardImage(drawable.comodin_reversa_toma4) },
     ),
     Card(
-        title = "reversa",
+        title = "reversa (todos los uno)",
         shotUnit = "el jugador que le cambiaron la dirección toma un shot.",
         image = { CardImage(drawable.reversa) },
         altImage = { CardImage(drawable.comodin_reversa) }
