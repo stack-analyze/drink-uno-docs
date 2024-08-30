@@ -92,7 +92,7 @@ val cards = listOf(
         image = { CardImage(drawable.comodin_salta2) },
     ),
     Card(
-        title = "todos toman una carta (uno flex)",
+        title = "flex toma 2 (uno flex)",
         shotUnit = """
         si un jugador juegan por el lado flex de la carta toma 2:
             todos los jugadores se toman un shot.
@@ -102,8 +102,8 @@ val cards = listOf(
     Card(
         title = "elige y toma 2 (uno all wild & uno flex)",
         shotUnit = """
-        1) si la carta es un comodin elige y toma dos.
-        2) si la carta es el lado flex de comodín toma 2 focalizada.
+        1) si la carta es un comodín elige y toma dos.
+        2) si la carta es el lado flex de comodín flex toma 2 focalizada.
         
         el jugador elegido se toma un shot.
         """.trimIndent(),
@@ -130,7 +130,7 @@ val cards = listOf(
         image = { CardImage(drawable.comodin_ruleta_de_color) },
     ),
     Card(
-        title = "reversa y salta (uno flex)",
+        title = "flex reversa (uno flex)",
         shotUnit = """
         si juegas por el lado flex de la carta flex reversa:
             1) el que le cambiaron la dirección toma un shot.
@@ -160,7 +160,7 @@ val cards = listOf(
         altImage = { CardImage(drawable.comodin_reversa) }
     ),
     Card(
-        title = "todos toman dos cartas (uno flex)",
+        title = "flex todos toman (uno flex)",
         shotUnit = """
         si un jugador juegan por el lado flex de la carta comodín flex todos toman:
             todos los jugadores se toman dos shots.
@@ -168,11 +168,11 @@ val cards = listOf(
         image = { CardImage(drawable.comodin_todos_toman) },
     ),
     Card(
-        title = "elige y toma cuatro (uno flex)",
+        title = "flex toma cuatro (uno flex)",
         shotUnit = """
         si un jugador juegan por el lado flex de la carta comodín flex toma 4:
             el jugador elegido se toma dos shots.
         """.trimIndent(),
-        image = { CardImage(drawable.comodin_todos_toman) },
+        image = { CardImage(drawable.comodin_toma4_focalizada) },
     ),
 ).sortedBy { it.image != null }
