@@ -49,13 +49,34 @@ val cards = listOf(
         shotUnit = "en jugador que llegue a 25 cartas o mas: ademas de esta eliminado, debe tomar 4 shots"
     ),
     Card(
+        title = "reversa (todos los uno)",
+        shotUnit = "el jugador que le cambiaron la dirección toma un shot.",
+        image = { CardImage(drawable.reversa) },
+        altImage = { CardImage(drawable.comodin_reversa) }
+    ),
+    Card(
+        title = "salta (todos los uno)",
+        shotUnit = "el jugador que perdió el turno se toma un shot.",
+        image = { CardImage(drawable.salta) },
+        altImage = { CardImage(drawable.comodin_salta) },
+    ),
+    Card(
+        title = "comodín personalizable (uno tradicional y super mario)",
+        shotUnit = """
+        el jugador que tiro esta carta es que decide la cantidad de shots a tomar.
+        1) si la regla personaliza es toma 16 debe tomar 8 shots.
+        2) es opcional.
+        """.trimIndent(),
+        image = { CardImage(drawable.comodin_personalizable) }
+    ),
+    Card(
         title = "toma 1 (uno express & uno flip)", 
         shotUnit = "toma un shot.",
         image = { CardImage(drawable.toma1) },
     ),
     Card(
         title = "toma 2 (varios uno)", 
-        shotUnit = "toma un shot.",
+        shotUnit = "toma medio shot.",
         image = { CardImage(drawable.toma2) },
         altImage = { CardImage(drawable.comodin_toma2) }
     ),
@@ -67,7 +88,7 @@ val cards = listOf(
     ),
     Card(
         title = "toma 5 (uno flip)", 
-        shotUnit = "toma tres shots.",
+        shotUnit = "toma dos shots y medio.",
         image = { CardImage(drawable.toma5) },
     ),
     Card(
@@ -81,12 +102,6 @@ val cards = listOf(
         image = { CardImage(drawable.comodin_toma10) },
     ),
     Card(
-        title = "salta (todos los uno)",
-        shotUnit = "el jugador que perdió el turno se toma un shot.",
-        image = { CardImage(drawable.salta) },
-        altImage = { CardImage(drawable.comodin_salta) },
-    ),
-    Card(
         title = "salta dos (uno all wild)",
         shotUnit = "los siguientes dos jugadores que perdieron su turno se toma un shot.",
         image = { CardImage(drawable.comodin_salta2) },
@@ -95,7 +110,7 @@ val cards = listOf(
         title = "flex toma 2 (uno flex)",
         shotUnit = """
         si un jugador juegan por el lado flex de la carta toma 2:
-            todos los jugadores se toman un shot.
+            todos los jugadores se toman medio shot.
         """.trimIndent(),
         image = { CardImage(drawable.flex_toma2) },
     ),
@@ -134,7 +149,7 @@ val cards = listOf(
         shotUnit = """
         si juegas por el lado flex de la carta flex reversa:
             1) el que le cambiaron la dirección toma un shot.
-            2) el perdió turno por el cambio de dirección se toma un shot.
+            2) el que perdió turno por el cambio de dirección se toma un shot.
         """.trimIndent(),
         image = { CardImage(drawable.flex_reversa) },
     ),
@@ -152,12 +167,6 @@ val cards = listOf(
         title = "reversa toma 4 (uno no mercy)",
         shotUnit = "el siguiente jugador que le cambiaron la dirección o así mismo se toma dos shots.",
         image = { CardImage(drawable.comodin_reversa_toma4) },
-    ),
-    Card(
-        title = "reversa (todos los uno)",
-        shotUnit = "el jugador que le cambiaron la dirección toma un shot.",
-        image = { CardImage(drawable.reversa) },
-        altImage = { CardImage(drawable.comodin_reversa) }
     ),
     Card(
         title = "flex todos toman (uno flex)",
