@@ -1,34 +1,46 @@
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.ListItem
-import androidx.compose.material3.Text
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
+import cafe.adriel.voyager.navigator.tab.CurrentTab
+import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
+import cafe.adriel.voyager.navigator.tab.Tab
+import cafe.adriel.voyager.navigator.tab.TabNavigator
+import screens.*
 
 @Composable
 fun MainScreen() {
-    val state = rememberLazyListState()
-
-    Scaffold {
-        LazyColumn(
-            state = state,
-            modifier = Modifier.fillMaxSize().padding(it)
+    TabNavigator(HomeScreen) {
+        Scaffold(
+            bottomBar = {
+                NavigationBar {
+                    TabNavigationItem(HomeScreen)
+                    TabNavigationItem(ActionCardsScreen)
+                    TabNavigationItem(WildCardsScreen)
+                }
+            },
         ) {
-            items(cards) { (title, shotUnit, image, altImage) ->
-                ListItem(
-                    headlineContent = { Text(title, fontWeight = FontWeight.Bold) },
-                    supportingContent = { Text(shotUnit) },
-                    leadingContent = image,
-                    trailingContent = altImage
-                )
-                HorizontalDivider()
-            }
+            val appStyles = Modifier.fillMaxSize().padding(it)
+            Box(modifier = appStyles) { CurrentTab() }
         }
     }
+}
+
+@Composable
+private fun RowScope.TabNavigationItem(tab: Tab) {
+    val tabNavigator = LocalTabNavigator.current
+
+    NavigationBarItem(
+        selected = tabNavigator.current == tab,
+        onClick = { tabNavigator.current = tab },
+        label = { Text(tab.options.title) },
+        icon = { Icon(tab.options.icon!!, null) }
+    )
 }
